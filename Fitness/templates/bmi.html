@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="page-header">
+    <h1>BMI Calculator</h1>
+    <p>Enter your weight and height to calculate your Body Mass Index.</p>
+</section>
+
+<section class="form-section">
+    <form method="POST" class="form-box">
+        <label for="weight">Weight (kg)</label>
+        <input type="text" id="weight" name="weight" placeholder="Enter your weight in kg" required>
+
+        <label for="height">Height (cm)</label>
+        <input type="text" id="height" name="height" placeholder="Enter your height in cm" required>
+
+        <button type="submit" class="btn">Calculate BMI</button>
+    </form>
+
+    {% if bmi_value %}
+    <div class="result-box">
+        <h2>Your BMI: {{ bmi_value }}</h2>
+        <p>Category: <strong>{{ category }}</strong></p>
+    </div>
+    {% endif %}
+</section>
+{% endblock %}
